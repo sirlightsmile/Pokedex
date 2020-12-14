@@ -22,11 +22,22 @@ const COLORS = {
 
 function App() {
   const cardsData = useRecoilValue(pokedexCardState);
+
+  const onClickAdd = () => {};
+
   return (
     <div className={b()}>
-      {cardsData.map((o, i) => {
-        return <CardComponent key={i} card={o}></CardComponent>;
-      })}
+      <header>
+        <h1>My pokedex</h1>
+      </header>
+      <main>
+        {cardsData.map((o, i) => {
+          return <CardComponent key={i} card={o}></CardComponent>;
+        })}
+      </main>
+      <button className={b('addButton')} onClick={onClickAdd}>
+        Add
+      </button>
     </div>
   );
 }

@@ -14,6 +14,14 @@ function CardComponent(props: CardComponentProps) {
 
   const stats = getStats(card);
 
+  const onClickAdd = () => {
+    //TODO: add card to deck
+  };
+
+  const onClickUnselect = () => {
+    //TODO: unselect card from deck
+  };
+
   return (
     <div className={b()}>
       <img src={card.imageUrl}></img>
@@ -24,6 +32,10 @@ function CardComponent(props: CardComponentProps) {
         <p>WEAK : {stats.weakness}</p>
         <p>HAPPINESS : {stats.happiness}</p>
       </section>
+      <div className={b('buttons')}>
+        <button>Add</button>
+        <button>Unselect</button>
+      </div>
     </div>
   );
 }
