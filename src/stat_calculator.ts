@@ -25,14 +25,13 @@ export function getStats(card: CardModel) {
   const weaknessesValue = clamp((weaknesses?.length ?? 0) * WEAKNESS_MULTIPLIER, MIN_STATS_VALUE, MAX_STATS_VALUE);
 
   let totalDamage = 0;
-  const dmgRegex = new RegExp('^[0-9]*$'); //number only
   if (attacks && attacks.length > 0) {
     for (const data of attacks) {
-      const damage = data.damage.replace(dmgRegex, '');
-      if (Number.isFinite(damage)) {
+      const damage = data.damage.replace(/[^0-9]/g, '');
+      if (Number.isFinite(Number(damage))) {
         totalDamage += Number(damage);
       } else {
-        throw Error('Invalid damage');
+        throw Error(`Invalid damage ${damage}`);
       }
     }
   }
