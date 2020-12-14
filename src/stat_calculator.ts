@@ -16,7 +16,7 @@ export interface PokedexStat {
   happiness: number;
 }
 
-function getStat(card: CardModel) {
+export function getStats(card: CardModel) {
   const { hp, attacks, weaknesses } = card;
 
   const hpNum = isFinite(Number(hp)) ? Number(hp) : 0;
