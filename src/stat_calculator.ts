@@ -36,7 +36,8 @@ export function getStats(card: CardModel) {
     }
   }
 
-  const happinessValue = (hpValue / 10 + totalDamage / 10 + 10 - weaknessesValue) / 5;
+  //TODO: check if should clamp?
+  const happinessValue = ((hpValue / 10) + (totalDamage / 10) + 10 - (weaknessesValue)) / 5;
   const stats: PokedexStat = {
     hp: hpValue,
     strength: strengthValue.toString() + '%',
