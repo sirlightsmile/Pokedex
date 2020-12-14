@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.scss";
+import "./styles/App.scss";
 
 const COLORS = {
   Psychic: "#f8a5c2",
