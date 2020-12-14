@@ -49,6 +49,11 @@ function CardComponent(props: CardComponentProps) {
     color = COLORS[card.type];
   }
 
+  const happinessIcon: JSX.Element[] = [];
+  for (let i = 0; i < stats.happiness; i++) {
+    happinessIcon.push(<div key={i} className={b('happiness', ['icon'])} />);
+  }
+
   return (
     <div className={b()} style={{ backgroundColor: color }}>
       <img src={card.imageUrl} alt={card.name}></img>
@@ -57,7 +62,7 @@ function CardComponent(props: CardComponentProps) {
         <p>HP : {stats.hp}</p>
         <p>STR : {stats.strength}</p>
         <p>WEAK : {stats.weakness}</p>
-        <p>HAPPINESS : {stats.happiness}</p>
+        <div className={b('happiness')}>{happinessIcon.map((o) => o)}</div>
       </section>
       <div className={b('buttons')}>
         <button className={b('buttons', ['add'])} disabled={!canAdd} onClick={onClickAdd} />
