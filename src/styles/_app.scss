@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 0 1 45%;
 
     header{
         position: sticky;
@@ -15,6 +14,13 @@
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-content: start;
+        margin: 5px;
     }
 
     &__addButton {
