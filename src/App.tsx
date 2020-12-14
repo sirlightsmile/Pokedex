@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './App.css'
+import React from "react";
+import "./App.scss";
 
 const COLORS = {
   Psychic: "#f8a5c2",
@@ -12,16 +12,11 @@ const COLORS = {
   Lightning: "#f9ca24",
   Darkness: "#574b90",
   Colorless: "#FFF",
-  Fire: "#eb4d4b"
+  Fire: "#eb4d4b",
+};
+
+function App() {
+  return <div className="App"></div>;
 }
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      </div>
-    )
-  }
-}
-
-export default App
+export default App;
