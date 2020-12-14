@@ -1,6 +1,32 @@
 .Card {
-    width: 100%;
-    height: 300px;
+    width: 98%;
+    height: 250px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    border: 2px solid #000000;
+    margin: 2px;
+
+    img {
+        height: 220px;
+        object-fit: contain;
+    }
+
+    button {
+        &:disabled{
+            display: hidden;
+        }
+
+        width: 100px;
+        height: 50px;
+    }
+
+    &__stats {
+        margin-left: 30px;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+    }
 }
