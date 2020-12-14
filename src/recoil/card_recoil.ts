@@ -1,4 +1,5 @@
-import { selector } from 'recoil';
+import { atom, selector } from 'recoil';
+import { CardModel } from '../model/card_model';
 import { GetAllCardsRequest } from '../requests/get_all_cards_request';
 
 export const pokedexCardState = selector({
@@ -11,4 +12,9 @@ export const pokedexCardState = selector({
       throw e;
     }
   },
+});
+
+export const myPokedexAtom = atom<CardModel[]>({
+  key: 'myPokedex',
+  default: [],
 });

@@ -1,6 +1,8 @@
 import bem from 'bem-ts';
 import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { CardModel } from '../model/card_model';
+import { myPokedexAtom } from '../recoil/card_recoil';
 import CardComponent from './card_component';
 
 const b = bem('SelectCardModal');
@@ -12,14 +14,18 @@ export interface SelectCardProps {
 function SelectCardModal(props: SelectCardProps) {
   const { cards } = props;
   const [keywords, setKeywords] = useState('');
+  const myPokedex = useRecoilValue(myPokedexAtom);
+  const idMap = new Set<string>(myPokedex.map((o) => o.id));
+
+  console.log(idMap);
 
   const onChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeywords(e.target.value);
   };
 
   const filteredCards = keywords
-    ? cards.filter((o) => o.name.toLowerCase().startsWith(keywords.toLowerCase(), 0))
-    : cards;
+    ? cards.filter((o) => !idMap.has(o.id) && o.name.toLowerCase().startsWith(keywords.toLowerCase(), 0))
+    : cards.filter((o) => !idMap.has(o.id));
 
   return (
     <div className={b()}>
