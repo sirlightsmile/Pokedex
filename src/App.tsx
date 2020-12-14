@@ -42,8 +42,9 @@ function App() {
       <button className={b('addButton')} onClick={triggerModal}>
         Add
       </button>
-      <div className={b('modal', { hidden: !showModal })} onClick={triggerModal}>
-        {showModal ? <SelectCardModal cards={cardsData} /> : null}
+      <div className={b('modal', { hidden: !showModal })}>
+        <div className={b('modal', ['bg'])} onClick={triggerModal}></div>
+        <div className={b('modal', ['content'])}>{showModal ? <SelectCardModal cards={cardsData} /> : null}</div>
       </div>
     </div>
   );
