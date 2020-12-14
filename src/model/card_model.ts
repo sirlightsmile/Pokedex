@@ -1,5 +1,3 @@
-const TrainerType = 'Trainer';
-
 export interface Attack {
   cost: string[];
   name: string;

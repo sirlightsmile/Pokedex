@@ -11,7 +11,7 @@
     header{
         position: sticky;
         top: 0;
-        background-color: rgb(216, 215, 215);
+        background-color: #d0efff;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -24,6 +24,10 @@
         width: 70px;
         height: 70px;
         margin: 10px;
+
+        background: url('/assets/plus.png') no-repeat;
+        background-size: cover;
+        border: none;
     }
 
     &__modal {

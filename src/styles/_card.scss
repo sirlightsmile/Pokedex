@@ -30,6 +30,21 @@
     }
 
     &__buttons {
+        &--add{
+            background: url('/assets/plus.png') no-repeat;
+            background-size: contain;
+            min-width: 60px;
+            min-height: 60px;
+        }
+
+        &--remove{
+            background: url('/assets/minus.png') no-repeat;
+            background-size: cover;
+            min-width: 70px;
+            min-height: 70px;
+        }
+
         flex: 0 1 10%;
+        border: none;
     }
 }

@@ -26,9 +26,7 @@ function App() {
           return <CardComponent key={i} card={o} canAdd={false} canUnselect={true}></CardComponent>;
         })}
       </main>
-      <button className={b('addButton')} onClick={triggerModal}>
-        Add
-      </button>
+      <button className={b('addButton')} onClick={triggerModal} />
       <div className={b('modal', { hidden: !showModal })}>
         <div className={b('modal', ['bg'])} onClick={triggerModal}></div>
         <div className={b('modal', ['content'])}>{showModal ? <SelectCardModal cards={cardsData} /> : null}</div>

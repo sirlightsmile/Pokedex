@@ -51,7 +51,7 @@ function CardComponent(props: CardComponentProps) {
 
   return (
     <div className={b()} style={{ backgroundColor: color }}>
-      <img src={card.imageUrl}></img>
+      <img src={card.imageUrl} alt={card.name}></img>
       <section className={b('stats')}>
         <h1>{card.name}</h1>
         <p>HP : {stats.hp}</p>
@@ -60,12 +60,8 @@ function CardComponent(props: CardComponentProps) {
         <p>HAPPINESS : {stats.happiness}</p>
       </section>
       <div className={b('buttons')}>
-        <button disabled={!canAdd} onClick={onClickAdd}>
-          Add
-        </button>
-        <button disabled={!canUnselect} onClick={onClickUnselect}>
-          Unselect
-        </button>
+        <button className={b('buttons', ['add'])} disabled={!canAdd} onClick={onClickAdd} />
+        <button className={b('buttons', ['remove'])} disabled={!canUnselect} onClick={onClickUnselect} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import { AxiosError } from "axios";
-import { BaseAPIConfig, BaseHttpRequest } from "./base_http_request";
+import { AxiosError } from 'axios';
+import { BaseAPIConfig, BaseHttpRequest } from './base_http_request';
 
 export type ConvertFunction<T> = (jsonObj: any) => jsonObj is T;
 
@@ -16,7 +16,7 @@ export class GenericHTTPRequest<T> extends BaseHttpRequest<T> {
     if (this.convertFunc(jsonObj)) {
       return jsonObj as T;
     } else {
-      throw "DATA_CONVERT_FAILED";
+      throw Error('DATA_CONVERT_FAILED');
     }
   }
 
