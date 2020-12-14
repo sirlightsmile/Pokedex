@@ -7,10 +7,12 @@ const b = bem('Card');
 
 export interface CardComponentProps {
   card: CardModel;
+  canAdd: boolean;
+  canUnselect: boolean;
 }
 
 function CardComponent(props: CardComponentProps) {
-  const { card } = props;
+  const { card, canAdd, canUnselect } = props;
 
   const stats = getStats(card);
 
@@ -33,8 +35,8 @@ function CardComponent(props: CardComponentProps) {
         <p>HAPPINESS : {stats.happiness}</p>
       </section>
       <div className={b('buttons')}>
-        <button>Add</button>
-        <button>Unselect</button>
+        <button disabled={!canAdd}>Add</button>
+        <button disabled={!canUnselect}>Unselect</button>
       </div>
     </div>
   );

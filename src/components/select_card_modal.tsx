@@ -26,7 +26,7 @@ function SelectCardModal(props: SelectCardProps) {
       <input type="text" placeholder="Search.." name="search" onChange={onChanged} />
       <div className={b('cards')}>
         {filteredCards.map((o, i) => {
-          return <CardComponent key={i} card={o}></CardComponent>;
+          return <CardComponent key={i} card={o} canAdd={true} canUnselect={false}></CardComponent>;
         })}
       </div>
     </div>

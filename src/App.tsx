@@ -1,7 +1,8 @@
 import bem from 'bem-ts';
-import React from 'react';
+import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import CardComponent from './components/card_component';
+import SelectCardModal from './components/select_card_modal';
 import { pokedexCardState } from './recoil/card_recoil';
 
 const b = bem('App');
@@ -22,8 +23,11 @@ const COLORS = {
 
 function App() {
   const cardsData = useRecoilValue(pokedexCardState);
+  const [showModal, setShowModal] = useState(false);
 
-  const onClickAdd = () => {};
+  const triggerModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <div className={b()}>
@@ -32,12 +36,15 @@ function App() {
       </header>
       <main>
         {cardsData.map((o, i) => {
-          return <CardComponent key={i} card={o}></CardComponent>;
+          return <CardComponent key={i} card={o} canAdd={false} canUnselect={true}></CardComponent>;
         })}
       </main>
-      <button className={b('addButton')} onClick={onClickAdd}>
+      <button className={b('addButton')} onClick={triggerModal}>
         Add
       </button>
+      <div className={b('modal', { hidden: !showModal })} onClick={triggerModal}>
+        {showModal ? <SelectCardModal cards={cardsData} /> : null}
+      </div>
     </div>
   );
 }
