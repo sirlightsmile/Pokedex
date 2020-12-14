@@ -10,7 +10,11 @@ export interface Params {
   type?: string;
 }
 
-export class GetAllCardsRequest extends GenericHTTPRequest<CardModel[]> {
+export interface GetCardsResponse {
+  cards: CardModel[];
+}
+
+export class GetAllCardsRequest extends GenericHTTPRequest<GetCardsResponse> {
   constructor(args?: Params) {
     //TODO: add args to request
 
@@ -27,12 +31,12 @@ export class GetAllCardsRequest extends GenericHTTPRequest<CardModel[]> {
   }
 }
 
-export function isGetAllCardResponse(obj: unknown): obj is CardModel[] {
-  const result = obj as CardModel[];
-
-  const isArray = Array.isArray(result);
-  if (isArray && result.length > 0) {
-    return isCardModel(result[0]);
+export function isGetAllCardResponse(obj: unknown): obj is GetCardsResponse {
+  const result = obj as GetCardsResponse;
+  const cardsData = result.cards;
+  const isArray = Array.isArray(cardsData);
+  if (isArray && cardsData.length > 0) {
+    return isCardModel(cardsData[0]);
   }
 
   return isArray;
