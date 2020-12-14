@@ -8,6 +8,15 @@
     align-items: center;
     flex: 0 1 45%;
 
+    header{
+        position: sticky;
+        top: 0;
+        background-color: rgb(216, 215, 215);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
     &__addButton {
         position: absolute;
         right: 0;
