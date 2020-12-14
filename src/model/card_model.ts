@@ -17,7 +17,7 @@ export interface Weakness {
   value: string;
 }
 
-export interface CardType {
+export interface CardModel {
   id: string;
   name: string;
   nationalPokedexNumber: number;
@@ -42,8 +42,8 @@ export interface CardType {
 }
 
 //types guard
-export function isCardType(obj: unknown): obj is CardType {
-  const data = obj as CardType;
+export function isCardModel(obj: unknown): obj is CardModel {
+  const data = obj as CardModel;
 
   const {
     id,
