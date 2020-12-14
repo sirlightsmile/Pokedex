@@ -1,5 +1,8 @@
 import bem from 'bem-ts';
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+import CardComponent from './components/card_component';
+import { pokedexCardState } from './recoil/card_recoil';
 
 const b = bem('App');
 
@@ -18,7 +21,14 @@ const COLORS = {
 };
 
 function App() {
-  return <div className={b()}></div>;
+  const cardsData = useRecoilValue(pokedexCardState);
+  return (
+    <div className={b()}>
+      {cardsData.map((o, i) => {
+        return <CardComponent key={i} card={o}></CardComponent>;
+      })}
+    </div>
+  );
 }
 
 export default App;
