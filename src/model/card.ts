@@ -17,7 +17,7 @@ export interface Weakness {
   value: string;
 }
 
-export interface RootObject {
+export interface CardType {
   id: string;
   name: string;
   nationalPokedexNumber: number;
@@ -39,4 +39,58 @@ export interface RootObject {
   attacks: Attack[];
   weaknesses: Weakness[];
   type: string;
+}
+
+//types guard
+export function isCardType(obj: unknown): obj is CardType {
+  const data = obj as CardType;
+
+  const {
+    id,
+    name,
+    nationalPokedexNumber,
+    imageUrl,
+    imageUrlHiRes,
+    supertype,
+    subtype,
+    ability,
+    hp,
+    retreatCost,
+    convertedRetreatCost,
+    number,
+    artist,
+    rarity,
+    series,
+    set,
+    setCode,
+    text,
+    attacks,
+    weaknesses,
+    type,
+  } = data;
+
+  return (
+    data &&
+    id !== undefined &&
+    name !== undefined &&
+    Number.isFinite(nationalPokedexNumber) &&
+    imageUrl !== undefined &&
+    imageUrlHiRes !== undefined &&
+    supertype !== undefined &&
+    subtype !== undefined &&
+    ability !== undefined &&
+    hp !== undefined &&
+    Array.isArray(retreatCost) &&
+    Number.isFinite(convertedRetreatCost) &&
+    number !== undefined &&
+    artist !== undefined &&
+    rarity !== undefined &&
+    series !== undefined &&
+    set !== undefined &&
+    setCode !== undefined &&
+    Array.isArray(text) &&
+    Array.isArray(attacks) &&
+    Array.isArray(weaknesses) &&
+    type !== undefined
+  );
 }
